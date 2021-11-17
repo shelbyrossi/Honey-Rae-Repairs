@@ -1,23 +1,37 @@
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { ApplicationViews } from "./ApplicationViews";
+import { NavBar } from "./nav/NavBar";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import "./Repairs.css";
 
-import React from "react"
-import { NavBar } from "./nav/NavBar"
-import { ApplicationViews } from "./ApplicationViews"
+export const Repairs = () => (
+  <>
+  {/* custom function with logic on which comp. should render 
+  if there is something in local storage- render nav bar */}
+    <Route
+      render={() => {
+        if (localStorage.getItem("honey_customer")) {
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+            </>
+          );
+        //   user not logged in, redirect to login URL 
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
 
-export const Repairs = () => {
-   
-
-    return (
-// <> Fragment - putting all return elements into one JXS element 
-        <> 
-            <NavBar/>
-            <h1>Honey Rae's Repair Shop</h1>
-               
-              
-        {/* renders correct component based on url */}
-                <ApplicationViews />
-
-        
-        </>
-    )
-
-}
+{/* renderes login component from previous else statement */}
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);

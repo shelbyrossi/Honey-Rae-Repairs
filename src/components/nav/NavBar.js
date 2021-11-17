@@ -20,7 +20,18 @@ export const NavBar = () => {
            </li>
            <li className="navbar_item">
                <Link className="navbar_link" to="/serviceTickets">Service Tickets</Link>
+           
+               </li>
+           <li className="navbar_item">
+               {/* when Logout is clicked, removes key value pair */}
+               <Link className="navbar_link" to="#"
+                   onClick={
+                       () => {
+                           localStorage.removeItem("honey_customer")
+                       }
+                   }>Logout</Link>
            </li>
+
 
         </ul>
         
