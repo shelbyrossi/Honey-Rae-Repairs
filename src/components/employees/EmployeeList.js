@@ -48,7 +48,7 @@ export const EmployeeList = () => {
                     // // parameter to capture each indivual employeeObj as iterates
                     (employee) => {
                         // // uniquely identify <h2> with a key, use .id since unique identifier
-                        return <p key={`employee--${employee.id}`}>{employee.name}</p>
+                        return <h2 key={`employee--${employee.id}`}>{employee.name}</h2>
                     }
                 )
             }
