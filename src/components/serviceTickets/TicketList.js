@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import './Tickets.css'
+
 
 export const TicketList = () => {
     // declaring variable "employees" that defines state
@@ -30,10 +32,14 @@ export const TicketList = () => {
         {
             tickets.map(
                 (ticket) => {
-                    return <div key={`ticket--${ticket.id}`}>
-                        {ticket.description}<p> submitted by 
+                    return <div key={`ticket--${ticket.id}`} > 
+                    {/* ternary statement - if there is an emergency ticket - give class of emergency else give ticket class */}
+                    <p className={ticket.emergency ? `emergency` : `ticket`}>
+                        
+                    {ticket.emergency ? "🚑" : ""} {ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
+                    </p>
+                </div>
 
-                          {ticket.customer.name} and worked by {ticket.employee.name}</p></div>
                 }
             )
         }
