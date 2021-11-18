@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 export const EmployeeList = () => {
     // declaring variable "employees" that defines state
@@ -34,6 +35,7 @@ export const EmployeeList = () => {
     }, [employees])
 
 
+    const history = useHistory()
 
 
     return (
@@ -52,6 +54,10 @@ export const EmployeeList = () => {
                     }
                 )
             }
+            <div>
+                <button onClick={() => history.push("/employees/create")}>Hire Employee</button>
+            </div>
         </>
     )
 }
+
