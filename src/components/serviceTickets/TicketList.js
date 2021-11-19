@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import './Tickets.css'
+import { Link } from "react-router-dom"
 
 
 export const TicketList = () => {
@@ -36,7 +37,7 @@ export const TicketList = () => {
                     {/* ternary statement - if there is an emergency ticket - give class of emergency else give ticket class */}
                     <p className={ticket.emergency ? `emergency` : `ticket`}>
                         
-                    {ticket.emergency ? "🚑" : ""} {ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
+                    {ticket.emergency ? "🚑" : ""} <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link>submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
                     </p>
                 </div>
 

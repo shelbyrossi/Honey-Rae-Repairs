@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export const EmployeeList = () => {
     // declaring variable "employees" that defines state
@@ -50,7 +51,10 @@ export const EmployeeList = () => {
                     // // parameter to capture each indivual employeeObj as iterates
                     (employee) => {
                         // // uniquely identify <h2> with a key, use .id since unique identifier
-                        return <h2 key={`employee--${employee.id}`}>{employee.name}</h2>
+                        return <h2 key={`employee--${employee.id}`}>
+                            <Link to={`/employee/${employee.id}`}>{employee.name}</Link>
+
+                        </h2>
                     }
                 )
             }
@@ -60,4 +64,3 @@ export const EmployeeList = () => {
         </>
     )
 }
-
