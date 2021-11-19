@@ -28,7 +28,7 @@ export const ApplicationViews = () => {
 
 
             {/* when the url is tickets, display TicketList */}
-            <Route exact path="/tickets">
+            <Route exact path="/serviceTickets">
                 {/* child */}
                 <TicketList />
             </Route>
